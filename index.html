@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="main" style="background:url('fon.jpg'); background-size:cover; background-repeat: no-repeat">
+<center>
+<h1 style="color: darkorchid">Узнайте как быстро вы печатаете!</h1>
+    <h2 id="slovo">Дезинформация</h2>
+    <b id="timer">50</b><br>
+    <input type="text" id="slovo1">
+<div style="font-size: 25px">
+    Вы успели написать правильно:
+</div>
+    <button style="background: red; font-size: 25px; width: 170px; height: 65px;" onclick="down()" > СТАРТУЕМ?!</button>
+</center>
+</body>
+<script>
+    words = ['Дезинформация','Компьютер', 'Сертификат','английский','Заинтерисованный','эскалатор','Перпендикуляр','Биссектриса','контейнер']
+    level=0
+function changeslovo() {
+    document.getElementById('slovo')
+}
+i=50
+timer1=undefined
+function down() {
+        document.getElementById('slovo1').focus()
+            clearInterval(timer1)
+        i=50
+    level=0
+    document.getElementById('slovo').innerHTML=words[level]
+    timer1=setInterval(function () {
+        if(document.getElementById('slovo1').value===words[level]) {
+            level += 1
+            document.getElementById('slovo').innerHTML = words[level]
+            document.getElementById('slovo1').value = ''
+        }
+        i=i-1
+         document.getElementById('timer').innerHTML=i
+        if(i==0)
+            clearInterval(timer1)
+    },1000)
+
+}
+</script>
+</html>
