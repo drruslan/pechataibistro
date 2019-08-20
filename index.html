@@ -12,12 +12,13 @@
     <input type="text" id="slovo1">
 <div style="font-size: 25px">
     Вы успели написать правильно:
+    <p id="result"></p>
 </div>
     <button style="background: red; font-size: 25px; width: 170px; height: 65px;" onclick="down()" > СТАРТУЕМ?!</button>
 </center>
 </body>
 <script>
-    words = ['Дезинформация','Компьютер', 'Сертификат','английский','Заинтерисованный','эскалатор','Перпендикуляр','Биссектриса','контейнер']
+    words = ['Дезинформация','Компьютер', 'Сертификат','английский','Заинтересованный','эскалатор','Перпендикуляр','Биссектриса','контейнер']
     level=0
 function changeslovo() {
     document.getElementById('slovo')
@@ -35,12 +36,16 @@ function down() {
             level += 1
             document.getElementById('slovo').innerHTML = words[level]
             document.getElementById('slovo1').value = ''
+            document.getElementById('result').innerHTML=level
         }
         i=i-1
          document.getElementById('timer').innerHTML=i
-        if(i==0)
+         if (level==8 || i==0)
+            document.getElementById('slovo').innerHTML = ''
+        if (i<1)
             clearInterval(timer1)
     },1000)
+
 
 }
 </script>
